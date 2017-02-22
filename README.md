@@ -55,8 +55,20 @@ vim freetds.conf
 ```
 Test the Connection
 --------------
-TODO
+To test that a connection can be made to the database with TSQL, run the command in your command line.  My username had a special character in it (a '-' symbol) and putting the entire username string in single quotes helped resolve any errors.  I liked sticking this command in a shell script so that I could easily test my connection and make any database changes without needing to hop into my Windows machine.
+```
+tsql -H testconnection -p 1433 -U 'USERNAME' -P PASSWORD
+```
+This should connect to the database and you would be able to interface with the database through the command line with commands. Example:
+```
+USE TEST_DB;
+
+SELECT * FROM TEST_DB;
+
+
+```
+If the tsql command doesn't work, then you should look at your installation of tssql that was done with yum.
 
 Interace with Python
 --------------
-TODO
+Refer to documentation from pymssql to see how to use Python to directly interface with the database.  I have scrapped together a simple script that you can reference.
