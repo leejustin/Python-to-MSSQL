@@ -2,7 +2,7 @@ Python to Microsoft SQL
 ============
 There exists some sparse documentation on getting connected to Microsoft SQL on a Linux environment.  Here, I go over the steps that I used to get Python to interface with MS SQL using TSQL on a Red Hat Linux environment.  Any Fedora-based distro should be pretty much the same steps -- other distros will have slight variations in commands but the concept will be the same.
 
-This solution helped me resolve this error message:
+This solution helped me resolve the error message below.  I was still receiving this message after validating my credentials and permissions.
 ```
 Login failed. The login is from an untrusted domain and cannot be used with Windows authentication.
 ```
@@ -62,9 +62,9 @@ tsql -H testconnection -p 1433 -U 'USERNAME' -P PASSWORD
 This should connect to the database and you would be able to interface with the database through the command line with commands. Example:
 ```
 USE TEST_DB;
-
+go
 SELECT * FROM TEST_DB;
-
+go
 
 ```
 If the tsql command doesn't work, then you should look at your installation of tssql that was done with yum.
